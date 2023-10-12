@@ -1,0 +1,37 @@
+def hot_dog():
+    dog_pack_price = 4.19
+    bun_pack_price = 2.79
+    beer_price = 14.99 #Michelob Beer, Dark Lager, Amber Bock
+    
+    number_of_people = int(input("Enter number of people: "))
+    dogs_per_person = int(input("Enter number of dohs per person: "))
+    
+    dogs_reqd = number_of_people * dogs_per_person
+    dog_packs = dogs_reqd // 10
+    bun_packs = dogs_reqd // 8
+    
+    if (dogs_reqd % 10 != 0):
+        dogs_packs += 1
+    
+    if (dogs_reqd % 8 != 0):
+        bun_packs += 1
+    
+    dog_price = dog_packs * dog_pack_price
+    bun_price = bun_packs * bun_pack_price
+    
+    dogs_left_over = dog_packs * 10 - dogs_reqd 
+    buns_left_over = bun_packs * 8 - dogs_reqd
+    
+    print(f"Number of dogs required: {dogs_reqd}")
+    print(f"Number of dog packs required: {dog_packs}")
+    print(f"Number of bun packs required: {bun_packs}")
+    
+    print(f"Leftover dogs: {dogs_left_over}")
+    print(f"Leftover buns: {buns_left_over}")
+    
+    print(f"Hot dog packages {dog_packs} @ ${dog_pack_price} = {dog_price}")
+    print(f"Bun packages { bun_packs } @ ${bun_pack_price} = {bun_price}")
+    print(f"Beer for cook ${beer_price}")
+    total_price = dog_price + bun_price + beer_price 
+    print(f"Total: ${dog_price:.2f} + ${bun_price:.2f} + ${beer_price:.2f}= ${total_price:.2f}")
+    
